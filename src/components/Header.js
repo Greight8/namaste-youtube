@@ -1,12 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { Hamburger_Icon, user_img, youtube_logo } from '../utils/constants'
+import { toggleSideBar } from '../utils/sidebarSlice'
 
 const Header = () => {
+    const dispatch = useDispatch()
+
+    // 1) making func to show/hide sidebar
+    const toggleSideBarHandler = () => {
+        dispatch(toggleSideBar())
+    }
+
     return (
         <div className='grid grid-flow-col p-5 m-2 shadow-sm'>
             <div className='flex col-span-1'>
-                <img className='h-8' src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png?f=webp" alt="hamburger icon" />
+                <img className='h-8 cursor-pointer' src={Hamburger_Icon} alt="hamburger icon" onClick={toggleSideBarHandler} />
 
-                <img className='h-8 pl-[12px]' src="https://www.edigitalagency.com.au/wp-content/uploads/Youtube-logo-dark-grey-png.png" alt="youtube logo" />
+                <img className='h-8 pl-[12px]' src={youtube_logo} alt="youtube logo" />
             </div>
 
             <div className='col-span-10'>
@@ -15,7 +25,7 @@ const Header = () => {
             </div>
 
             <div className='col-span-1'>
-                <img className='h-8' src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="user icon" />
+                <img className='h-8' src={user_img} alt="user icon" />
             </div>
         </div>
     )
