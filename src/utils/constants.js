@@ -6,4 +6,4 @@ export const user_img = "https://www.iconpacks.net/icons/2/free-user-icon-3296-t
 
 const youtube_apikey = "AIzaSyBodZ3CFCydk3QqE0ZecM2TQqFTasgIz_M"
 
-const youtube_video_api = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + youtube_apikey
+export const youtube_video_api = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + youtube_apikey
