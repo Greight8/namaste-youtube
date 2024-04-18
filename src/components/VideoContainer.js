@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import useYoutubeVideo from '../hooks/useYoutubeVideo'
+import Shimmer from './Shimmer'
 import VideoCart from './VideoCart'
 
 const VideoContainer = () => {
@@ -13,16 +14,19 @@ const VideoContainer = () => {
     })
 
     // 3) doing early return if youtubeVideo store is empty
-    if (!myYoutubeVideo) {
-        return
-    }
+    // if (!myYoutubeVideo) {
+    //     return
+    // }
 
     return (
-        <div className='flex flex-wrap'>
-            {myYoutubeVideo.map((video) => {
-                return <VideoCart key={video.id} info={video} />
-            })}
-        </div>
+        <>
+            {!myYoutubeVideo ? <Shimmer /> :
+                <div className='flex flex-wrap justify-center'>
+                    {myYoutubeVideo.map((video) => {
+                        return <VideoCart key={video.id} info={video} />
+                    })}
+                </div>}
+        </>
     )
 }
 

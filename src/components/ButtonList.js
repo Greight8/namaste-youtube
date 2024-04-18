@@ -6,7 +6,7 @@ const ButtonList = () => {
     const nameList = ["All", "Mixes", "Geopolitics", "Thugesh", "Tanmay Bhatt", "Qamar Cheema", "Live", "Cricket", "News"]
 
     return (
-        <div className='flex'>
+        <div className='flex justify-center'>
             {nameList.map((name) => {
                 return <Button key={name} name={name} />
             })}
