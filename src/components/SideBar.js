@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const SideBar = () => {
     // 1) subscribing to our store to show/hide sidebar
@@ -15,8 +16,8 @@ const SideBar = () => {
     return (
         <>
             {mySidebar && <div className="shadow-lg w-[150px] pl-[10px]">
-                <ul className="pt-[2px]">
-                    <li>Home</li>
+                <ul className="pt-[2px] cursor-pointer">
+                    <li><Link to="/">Home</Link></li>
                     <li>Shorts</li>
                     <li>Playlist</li>
                     <li>Liked</li>

@@ -23,7 +23,28 @@ const appRouter = createBrowserRouter(
           element: <WatchPage />
         }
       ]
-    }
+    },
+    // {
+    //   path: "/",
+    //   element: <Header />,
+    //   Children: [
+    //     {
+    //       path: "/",
+    //       element: <Body />,
+    //       Children: [
+    //         {
+    //           path: "/",
+    //           element: <MainContainer />
+    //         },
+
+    //         {
+    //           path: "/watch",
+    //           element: <WatchPage />
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
   ]
 )
 

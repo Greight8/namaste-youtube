@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+// import { Link } from 'react-router-dom'
 import { Hamburger_Icon, user_img, youtube_logo } from '../utils/constants'
 import { toggleSideBar } from '../utils/sidebarSlice'
 
@@ -16,7 +17,7 @@ const Header = () => {
             <div className='flex col-span-1'>
                 <img className='h-8 cursor-pointer' src={Hamburger_Icon} alt="hamburger icon" onClick={toggleSideBarHandler} />
 
-                <img className='h-8 pl-[12px]' src={youtube_logo} alt="youtube logo" />
+                <img className='h-8 pl-[12px] cursor-pointer' src={youtube_logo} alt="youtube logo" />
             </div>
 
             <div className='col-span-10'>

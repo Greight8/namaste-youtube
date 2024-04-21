@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import useYoutubeVideo from '../hooks/useYoutubeVideo'
 import Shimmer from './Shimmer'
 import VideoCart from './VideoCart'
@@ -21,11 +22,13 @@ const VideoContainer = () => {
     return (
         <>
             {!myYoutubeVideo ? <Shimmer /> :
-                <div className='flex flex-wrap justify-center'>
+                <div className='flex flex-wrap justify-center cursor-pointer'>
                     {myYoutubeVideo.map((video) => {
-                        return <VideoCart key={video.id} info={video} />
+                        return <Link to={"/watch?v=" + video.id} key={video.id}> <VideoCart info={video} /> </Link>
+
                     })}
-                </div>}
+                </div>
+            }
         </>
     )
 }
