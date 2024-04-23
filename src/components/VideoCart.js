@@ -8,7 +8,7 @@ const VideoCart = ({ info }) => {
     const { viewCount } = statistics
 
     return (
-        <div className='m-2 p-2 shadow-lg w-[283px]'>
+        <div className='m-2 p-2 shadow-lg w-[283px] cursor-pointer'>
             <img className='rounded-lg' src={thumbnails.medium.url} alt="video img" />
             <ul>
                 <li className='font-bold py-2'>{title}</li>
@@ -21,5 +21,13 @@ const VideoCart = ({ info }) => {
         </div>
     )
 }
+
+// export const addVideoCart = (VideoCart)=>{
+//     return(props) =>{
+//         return (
+//             <VideoCart {...props} />
+//         )
+//     }
+// }
 
 export default VideoCart

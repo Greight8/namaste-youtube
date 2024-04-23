@@ -22,7 +22,7 @@ const VideoContainer = () => {
     return (
         <>
             {!myYoutubeVideo ? <Shimmer /> :
-                <div className='flex flex-wrap justify-center cursor-pointer'>
+                <div className='flex flex-wrap justify-center'>
                     {myYoutubeVideo.map((video) => {
                         return <Link to={"/watch?v=" + video.id} key={video.id}> <VideoCart info={video} /> </Link>
 
