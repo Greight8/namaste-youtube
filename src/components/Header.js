@@ -1,18 +1,25 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 // import { Link } from 'react-router-dom'
 import { Hamburger_Icon, user_img, youtube_logo, youtube_sugesstion_api } from '../utils/constants'
+import { cacheResults } from '../utils/searchSlice'
 import { toggleSideBar } from '../utils/sidebarSlice'
 
 const Header = () => {
     const dispatch = useDispatch()
 
+    // 4) susbscribing to search slice :-
+    const searchCache = useSelector((store) => {
+        return store.search
+    })
+    // console.log("value of search store is", searchCache)
+
     // 3) to store sugesstions from our api :-
     const [sugesstion, setSugesstion] = useState([])
 
-    // to show/hide our segesstion on focous/blur
+    // 3.1) to show/hide our segesstion on focous/blur
     const [showSugesstion, setShowSugesstion] = useState(false)
 
     // 2) to type inside input box
@@ -22,25 +29,36 @@ const Header = () => {
         setSearchTxt(e.target.value)
     }
 
-    const getSearchSugesstions = async () => {
-        console.log(searchTxt)
-        const url = youtube_sugesstion_api;
-        const response = await fetch(url + searchTxt);
-        const data = await response.json();
-        console.log(data[1])
-        setSugesstion(data[1])
-    }
-
     useEffect(() => {
         // 1) doing debouncing to improve app performance
         const timer = setTimeout(() => {
-            getSearchSugesstions();
+            // 1) writing cache logic here
+            if (searchCache[searchTxt]) {
+                setSugesstion(searchCache[searchTxt])
+            }
+
+            else {
+                getSearchSugesstions();
+            }
+            // getSearchSugesstions();
         }, 200);
 
         return (() => {
             clearTimeout(timer);
         })
     }, [searchTxt])
+
+    const getSearchSugesstions = async () => {
+        // console.log(searchTxt)
+        const url = youtube_sugesstion_api;
+        const response = await fetch(url + searchTxt);
+        const data = await response.json();
+        // console.log(data[1])
+        setSugesstion(data[1])
+
+        // sending the searchtxt, sugesstion to searchSlice
+        dispatch(cacheResults({ [searchTxt]: data[1] }))
+    }
 
     // i -->
     // header renders 

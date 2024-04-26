@@ -16,7 +16,7 @@ const useYoutubeVideo = () => {
         const url = youtube_video_api
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         dispatch(addYoutubeVideo(data.items))
     }
 
