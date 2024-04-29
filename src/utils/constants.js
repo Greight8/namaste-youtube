@@ -9,3 +9,9 @@ const youtube_apikey = "AIzaSyBodZ3CFCydk3QqE0ZecM2TQqFTasgIz_M"
 export const youtube_video_api = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + youtube_apikey
 
 export const youtube_sugesstion_api = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+
+export const youtube_video_url = "https://www.youtube.com/embed/"
+
+export const string_length = 15
+
+export const live_chat_position = 25
